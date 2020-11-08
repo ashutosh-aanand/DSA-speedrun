@@ -24,6 +24,7 @@ int m1(int a[], int n)
 }
 
 // m2) Using Tortoise and Hare (cycle detection)
+// time : O(n), Space: O(n) without affecting the data
 int m2(int a[], int n)
 {
 	int slow=a[0], fast = a[a[0]];
