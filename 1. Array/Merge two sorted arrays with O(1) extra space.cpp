@@ -58,6 +58,33 @@ void m1(vector<int>& a, int n, vector<int>& b, int m)
 	}
 }
 
+// m2) O(m+n) space solu.
+// Time:  O(m+n)
+// Space: O(m+n)
+
+void m2(vector<int>& a, int n, vector<int>& b, int m)
+{
+	vector<int> ans(n+m);
+	int i=0, j=0, k=0;
+	while(i<n && j<m)
+	{
+		if(a[i]<=b[j]){
+			ans[k]=a[i];
+			k++, i++;
+		}
+		else{
+			ans[k]=b[j];
+			k++, j++;
+		}
+	}
+	while(i<n) ans[k++]=a[i++];
+	while(j<m) ans[k++]=b[j++];
+
+	//filling answer
+	for(int i=0;i<n;i++) a[i]=ans[i];
+	for(int i=0;i<m;i++) b[i]=ans[n+i];
+}
+
 int main()
 {
 	fast_IO();
@@ -69,7 +96,7 @@ int main()
 	for(int i=0;i<n;i++) cin>>a[i];
 	for(int i=0;i<m;i++) cin>>b[i];
 
-	m1(a,n,b,m);
+	m2(a,n,b,m);
 	
 	for(int i=0;i<n;i++) cout<<a[i]<<", "; cout<<"\n";
 	for(int i=0;i<m;i++) cout<<b[i]<<", "; cout<<"\n";
