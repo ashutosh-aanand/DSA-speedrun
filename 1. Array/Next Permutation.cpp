@@ -29,6 +29,8 @@ void fast_IO() { ios_base::sync_with_stdio(false);cin.tie(NULL);}
 void test_locally(){ freopen("in.txt","r",stdin);freopen("out.txt","w",stdout);}
 
 // m1)
+// Time: O(n)
+// Space: O(1)
 
 void m1(vector<int> a, int n)
 {
@@ -40,7 +42,7 @@ void m1(vector<int> a, int n)
 
 	if(p==-1)
 	{
-		sort(a.begin(), a.end());
+		reverse(a.begin(), a.end());
 	}
 	else
 	{
@@ -50,7 +52,15 @@ void m1(vector<int> a, int n)
 			if(a[j]>a[p]) g=j;
 
 		swap(a[p], a[g]);
-		sort(a.begin()+p+1, a.end());
+
+		// now a[p+1] to a[n-1] is in descending order
+		// so, after swapping a[p] with just greater element among
+		// a[p+1] to a[n-1] the range will still remain sorted in descending
+		// order.
+		// So, to arrange it in ascending order, we just need to reverse this
+		// range.
+
+		reverse(a.begin()+p+1, a.end());
 	}
 
 	for(int x: a) cout<<x<<" ";
