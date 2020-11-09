@@ -26,6 +26,13 @@ void fast_IO() { ios_base::sync_with_stdio(false);cin.tie(NULL);}
 void test_locally(){ freopen("in.txt","r",stdin);freopen("out.txt","w",stdout);}
 
 // m1)
+// Time: O(n*n)
+// Space: O(n*n)
+/*
+nth row has n no. of elements
+=> Time and space complexity:
+ = 1+2+3+4+...+n => O(n*n)
+*/
 
 vector<vector<int> > m1(int n)
 {
