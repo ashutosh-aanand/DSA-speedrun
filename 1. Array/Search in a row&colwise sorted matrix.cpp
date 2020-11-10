@@ -15,7 +15,8 @@ void fast_IO() { ios_base::sync_with_stdio(false);cin.tie(NULL);}
 void test_locally(){ freopen("in.txt","r",stdin);freopen("out.txt","w",stdout);}
 
 // m1)
-
+// Time: O(n*m)
+// Space: O(1)
 void m1(vector<vector<int> > a, int x)
 {
 	int n = a.size();
